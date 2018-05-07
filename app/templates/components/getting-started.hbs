@@ -1,0 +1,39 @@
+
+<button {{action "toggleModal"}}>Set Cipher</button>
+
+{{#if isShowingModal}}
+  {{#modal-dialog onClose="toggleModal"
+                  targetAttachment="center"
+                  translucentOverlay=true}}
+                  {{#each cipherOptions as |cipherOption|}}
+                    <button {{action "setCipherAndToggleModal" cipherOption.name}}>{{cipherOption.longName}}</button>
+                    <br>
+                  {{/each}}
+  {{/modal-dialog}}
+{{/if}}
+
+
+{{!TODO split this logic into separate components}}
+
+Mode:
+<button>Encrypt</button>
+<button>Decrypt</button>
+<br>
+<br>
+
+Enter text
+{{textarea value=inputText cols="80" rows="6"}}
+
+Private key
+{{textarea value=privateKey cols="80" rows="6"}}
+
+Public key
+{{textarea value=publicKey cols="80" rows="6"}}
+
+<button {{action "generateKeys" cipher}}>Go</button>
+
+{{#if (eq cipher "AES")}}
+<h1>AES</h1>
+{{else if (eq cipher "RSA")}}
+<h1>RSA</h1>
+{{/if}}

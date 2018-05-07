@@ -22,13 +22,18 @@ module.exports = function(environment) {
       // when it is created
     }
   };
-
+  ENV.contentSecurityPolicy = {
+  // ... other stuff here
+  'connect-src': "'self' http://127.0.0.1:8080"
+  }
+  //ENV.apiHost = 'http://localhost:8080';
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.apiHost = 'http://localhost:8080';
   }
 
   if (environment === 'test') {
