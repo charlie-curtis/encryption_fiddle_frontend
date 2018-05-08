@@ -41,7 +41,8 @@
     "ember-modals": "1.0.0",
     "ember-resolver": "^2.0.3",
     "ember-truth-helpers": "2.0.0",
-    "loader.js": "^4.0.10"
+    "loader.js": "^4.0.10",
+    "popper.js": "1.14.3"
   },
   "engines": {
     "node": ">= 0.12.0"

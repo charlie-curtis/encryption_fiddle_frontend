@@ -1,43 +1,34 @@
-<div class="container-fluid">
-  <div class="menuNav">
-    <table class="table table-striped">
-        <td>
-          <button {{action "toggleModal"}}>Reset</button>
-        </td>
-        <td>
-          <button {{action "generateKeys" cipher}}>Generate New Keys</button>
-        </td>
-        <td>
-          <button {{action "decryptText"}}>Decrypt Msg</button>
-        </td>
-        <td>
-        <button {{action "encryptText"}}>Encrypt Msg</button>
-      </td>
-    </table>
-  </div>
-</div>
-
+<h1> Encryption Fiddle</h1>
 <div class="container-fluid">
   <div class="innerDiv">
     <table class="table table-striped">
       <tr>
-        <td class="dataEntry">Text</td>
-        <td class="textArea">{{textarea value=inputText cols="80" rows="15"}}</td>
+        <td class="dataEntry">Message</td>
+        <td class="textArea">{{textarea value=inputText cols="80" rows="10"}}</td>
       </tr>
       <tr>
         <td class="dataEntry">Private Key</td>
-        <td class="textArea">{{textarea value=privateKey cols="80" rows="10"}}</td>
+        <td class="textArea">{{textarea value=privateKey cols="80" rows="6"}}</td>
       </tr>
       {{#if (eq cipher "RSA")}}
         <tr>
           <td class="dataEntry">Public Key</td>
-          <td class="textArea">{{textarea value=publicKey cols="80" rows="10"}}</td>
+          <td class="textArea">{{textarea value=publicKey cols="80" rows="6"}}</td>
         </tr>
         {{/if}}
     </table>
   </div>
 </div>
 <br>
+
+<div class="container-fluid">
+  <div class="menuOptions">
+<button class="btn btn-primary btn-lg btn-block" {{action "toggleModal"}}>Reset</button>
+<button class="btn btn-primary btn-lg btn-block" {{action "generateKeys" cipher}}>Generate New Keys</button>
+<button class="btn btn-primary btn-lg btn-block" {{action "decryptText"}}>Decrypt Message</button>
+<button class="btn btn-primary btn-lg btn-block" {{action "encryptText"}}>Encrypt Message</button>
+  </div>
+</div>
 
 
 <!--controls the modal-->
@@ -46,11 +37,12 @@
                   targetAttachment="center"
                   translucentOverlay=true}}
                   <div id="cipherOption">Choose a Cipher</div>
-                  {{#each cipherOptions as |cipherOption|}}
-                    <button type="button" class="btn btn-primary btn-lg"{{action "clearStateAndSetCipher" cipherOption.name}}>
-                      {{cipherOption.longName}}
-                    </button>
-                    <br>
-                  {{/each}}
+                  <div class="modalOptions">
+                    {{#each cipherOptions as |cipherOption|}}
+                      <button type="button" class="btn btn-default"{{action "clearStateAndSetCipher" cipherOption.name}}>
+                        {{cipherOption.longName}} <b>({{cipherOption.name}})</b>
+                      </button>
+                    {{/each}}
+                  </div>
   {{/modal-dialog}}
 {{/if}}

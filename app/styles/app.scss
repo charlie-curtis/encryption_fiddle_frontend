@@ -1,63 +1,48 @@
 @import "ember-modal-dialog/ember-modal-structure";
 @import "ember-modal-dialog/ember-modal-appearance";
+@import "ember-bootstrap/bootstrap";
 
-
-@font-face {
-    font-family: 'antoniolight';
-    src: url('../fonts/antonio/antonio-light-webfont.eot');
-    src: url('../fonts/antonio/antonio-light-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/antonio/antonio-light-webfont.woff2') format('woff2'),
-         url('../fonts/antonio/antonio-light-webfont.woff') format('woff'),
-         url('../fonts/antonio/antonio-light-webfont.ttf') format('truetype'),
-         url('../fonts/antonio/antonio-light-webfont.svg#antoniolight') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
+h1 {
+  text-align:center;
 }
 
-@font-face {
-    font-family: 'ds-digitalnormal';
-    src: url('../fonts/ds_digital/ds-digi-webfont.eot');
-    src: url('../fonts/ds_digital/ds-digi-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/ds_digital/ds-digi-webfont.woff2') format('woff2'),
-         url('../fonts/ds_digital/ds-digi-webfont.woff') format('woff'),
-         url('../fonts/ds_digital/ds-digi-webfont.ttf') format('truetype'),
-         url('../fonts/ds_digital/ds-digi-webfont.svg#ds-digitalnormal') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
+.modalOptions {
+  //padding:1em;
 }
 
 .dataEntry {
     font-size:1.25em;
     //font-weight: bold;
-    width:15%;
-    padding-left:2em;
+    width:25%;
+    padding-left:7em;
     //text-align:right;
 }
 
 .textArea {
-  //padding-right:10em;
-
   width:50%;
 }
-
 .innerDiv {
+  background-color: #eee;
+  padding-top: 2em;
+  padding-bottom: 2em;
   display:block;
   width:100%;
 }
 
-.menuNav {
+.menuOptions {
+  background-color: #eee;
+  margin: auto;
+  text-align:center;
   width:50%;
 }
 
 .table {
-
 }
 
 .ember-modal-dialog {
+  background-color: #eee;
   text-align:center;
   line-height:200%;
+  width:50%;
+  height:50%;
 }
-
-@import "ember-bootstrap/bootstrap";

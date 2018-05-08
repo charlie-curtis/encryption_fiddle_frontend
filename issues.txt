@@ -1,0 +1,4 @@
+Encrypting long messages doesn't work
+Need better exception handling
+Need better input validation. IE you must specify a key before encryping/decrypting msg
+Add a logger
