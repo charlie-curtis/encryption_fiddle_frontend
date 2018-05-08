@@ -1,44 +1,56 @@
+<div class="container-fluid">
+  <div class="menuNav">
+    <table class="table table-striped">
+        <td>
+          <button {{action "toggleModal"}}>Reset</button>
+        </td>
+        <td>
+          <button {{action "generateKeys" cipher}}>Generate New Keys</button>
+        </td>
+        <td>
+          <button {{action "decryptText"}}>Decrypt Msg</button>
+        </td>
+        <td>
+        <button {{action "encryptText"}}>Encrypt Msg</button>
+      </td>
+    </table>
+  </div>
+</div>
 
-<button {{action "toggleModal"}}>Reset</button>
-<br>
+<div class="container-fluid">
+  <div class="innerDiv">
+    <table class="table table-striped">
+      <tr>
+        <td class="dataEntry">Text</td>
+        <td class="textArea">{{textarea value=inputText cols="80" rows="15"}}</td>
+      </tr>
+      <tr>
+        <td class="dataEntry">Private Key</td>
+        <td class="textArea">{{textarea value=privateKey cols="80" rows="10"}}</td>
+      </tr>
+      {{#if (eq cipher "RSA")}}
+        <tr>
+          <td class="dataEntry">Public Key</td>
+          <td class="textArea">{{textarea value=publicKey cols="80" rows="10"}}</td>
+        </tr>
+        {{/if}}
+    </table>
+  </div>
+</div>
 <br>
 
+
+<!--controls the modal-->
 {{#if isShowingModal}}
   {{#modal-dialog onClose="toggleModal"
                   targetAttachment="center"
                   translucentOverlay=true}}
+                  <div id="cipherOption">Choose a Cipher</div>
                   {{#each cipherOptions as |cipherOption|}}
-                    <button {{action "clearStateAndSetCipher" cipherOption.name}}>{{cipherOption.longName}}</button>
+                    <button type="button" class="btn btn-primary btn-lg"{{action "clearStateAndSetCipher" cipherOption.name}}>
+                      {{cipherOption.longName}}
+                    </button>
                     <br>
                   {{/each}}
   {{/modal-dialog}}
-{{/if}}
-
-
-{{!TODO split this logic into separate components}}
-
-Enter text
-{{textarea value=inputText cols="80" rows="6"}}
-<br>
-<br>
-Private key
-{{textarea value=privateKey cols="80" rows="6"}}
-
-{{#if (eq cipher "RSA")}}
-Public key
-{{textarea value=publicKey cols="80" rows="6"}}
-{{/if}}
-
-<br>
-<button {{action "generateKeys" cipher}}>Generate Key</button>
-<br>
-<button {{action "decryptText"}}>Decrypt Msg</button>
-<br>
-<button {{action "encryptText"}}>Encrypt Msg</button>
-
-
-{{#if (eq cipher "AES")}}
-<h1>AES</h1>
-{{else if (eq cipher "RSA")}}
-<h1>RSA</h1>
 {{/if}}
