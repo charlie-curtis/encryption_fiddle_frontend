@@ -1,12 +1,14 @@
-var CIPHERS = [
-  {
+var CIPHER_AES = {
     name: 'AES',
     longName: 'Advanced Encryption Standard (AES)'
-  },
-  {
-    name: 'RSA',
-    longName: 'Rivest, Shamir, Adleman (RSA)'
-  }
+};
+var CIPHER_RSA = {
+  name: 'RSA',
+  longName: 'Rivest, Shamir, Adleman (RSA)'
+};
+var CIPHERS = [
+  CIPHER_AES,
+  CIPHER_RSA
 ];
 
-export default CIPHERS;
+export { CIPHER_AES, CIPHER_RSA, CIPHERS };
