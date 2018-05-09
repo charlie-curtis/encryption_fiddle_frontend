@@ -2,8 +2,8 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   ajax: Ember.inject.service(),
   init() {
-    this.generateKeys();
     this._super();
+    this.generateKeys();
   },
   container: null,
   generateKeys() {
@@ -15,15 +15,5 @@ export default Ember.Component.extend({
         container.set('privateKey', response.private_key || null);
         container.set('publicKey', response.public_key || null);
     });
-  },
-  actions: {
-    transitionToNextPanel() {
-      var container = this.get('container');
-      container.transitionToNextPanel();
-    },
-    transitionToPreviousPanel() {
-      var container = this.get('container');
-      container.transitionToPreviousPanel();
-    }
   }
 });

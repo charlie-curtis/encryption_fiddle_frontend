@@ -8,10 +8,6 @@ export default Ember.Component.extend({
     setCipher(cipher) {
       var container = this.get('container');
       container.set('cipher', cipher);
-    },
-    transitionToNextPanel() {
-      var container = this.get('container');
-      container.transitionToNextPanel();
     }
   }
 });

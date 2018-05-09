@@ -27,10 +27,6 @@ export default Ember.Component.extend({
       }).then(response => {
           container.set('inputText', response.msg || null);
       });
-    },
-    transitionToPreviousPanel() {
-      var container = this.get('container');
-      container.transitionToPreviousPanel();
     }
   }
 });
