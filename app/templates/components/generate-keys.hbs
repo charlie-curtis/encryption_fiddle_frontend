@@ -1,0 +1,25 @@
+{{#modal-dialog onClose="toggleModal"
+  targetAttachment="center"
+  translucentOverlay=true}}
+  Your keys are:
+<div class="container-fluid">
+  <div class="innerDiv">
+    <table class="table table-striped">
+
+      <tr>
+        <td class="dataEntry">Private Key</td>
+        <td class="textArea">{{textarea value=privateKey cols="80" rows="6"}}</td>
+      </tr>
+      {{#if (eq cipher "RSA")}}
+        <tr>
+          <td class="dataEntry">Public Key</td>
+          <td class="textArea">{{textarea value=publicKey cols="80" rows="6"}}</td>
+        </tr>
+        {{/if}}
+    </table>
+  </div>
+</div>
+{{! TODO DISABLE BUTTONS UNTIL THE NETWORK REQUEST HAS FINISHED}}
+  {{!#link-to fiddle}}NEXT{{!/link-to}}
+  <button>BACK</button>
+{{/modal-dialog}}

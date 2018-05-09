@@ -1,0 +1,13 @@
+<div class="dataEntry">Message</div>
+<div class="textArea">{{textarea value=inputText cols="80" rows="10"}}</div>
+
+
+
+<div class="container-fluid">
+<div class="menuOptions">
+  <button class="btn btn-primary btn-lg" {{action "toggleModal"}}>Reset</button>
+  <button class="btn btn-primary btn-lg" {{action "generateKeys" cipher}}>Generate New Keys</button>
+  <button class="btn btn-primary btn-lg" {{action "decryptText"}}>Decrypt Message</button>
+  <button class="btn btn-primary btn-lg" {{action "encryptText"}}>Encrypt Message</button>
+</div>
+</div>
