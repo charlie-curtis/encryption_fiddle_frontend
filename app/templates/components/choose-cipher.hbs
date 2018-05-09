@@ -1,4 +1,4 @@
-{{#modal-dialog onClose="toggleModal"
+{{#modal-dialog
   targetAttachment="center"
   translucentOverlay=true}}
   <h1>Getting Started</h1>
@@ -9,6 +9,6 @@
         {{cipher.longName}} <b>({{cipher.name}})</b>
       </button>
     {{/each}}
-      {{#link-to "generate-keys" cipher.name}}NEXT{{/link-to}}
+      <button {{action "transitionToNextPanel" }}> NEXT </button>
   </div>
 {{/modal-dialog}}

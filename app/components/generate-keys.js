@@ -5,17 +5,25 @@ export default Ember.Component.extend({
     this.generateKeys();
     this._super();
   },
-  privateKey: '',
-  publicKey: '',
-  cipher: null,
+  container: null,
   generateKeys() {
-    var cipherName = this.get('cipher.name');
-    alert(cipherName);
+    let container =  this.get('container');
+    let cipherName = container.get('cipher.name');
     return this.get('ajax').request("/generate/keys/" + cipherName,
       { method: "GET"
     }).then(response => {
-        this.set('privateKey', response.private_key || null);
-        this.set('publicKey', response.public_key || null);
+        container.set('privateKey', response.private_key || null);
+        container.set('publicKey', response.public_key || null);
     });
+  },
+  actions: {
+    transitionToNextPanel() {
+      var container = this.get('container');
+      container.transitionToNextPanel();
+    },
+    transitionToPreviousPanel() {
+      var container = this.get('container');
+      container.transitionToPreviousPanel();
+    }
   }
 });

@@ -8,8 +8,6 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('getting-started');
-  this.route('generate-keys', {path: "/generate-keys/:cipher_id"});
-  this.route('fiddle');
 });
 
 export default Router;

@@ -1,0 +1,14 @@
+Main container
+{{#if cipher}}
+  The cipher is {{cipher.name}}<br>
+{{/if}}
+  The active panel is {{activePanel}}<br>
+
+
+{{#if isCipherPanelActive}}
+  {{choose-cipher container=this}}
+{{else if isKeyPanelActive}}
+  {{generate-keys container=this}}
+{{else if isFiddlePanelActive}}
+  {{fiddle-main container=this}}
+{{/if}}

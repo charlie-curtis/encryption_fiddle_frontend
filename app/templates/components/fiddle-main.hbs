@@ -1,5 +1,5 @@
 <div class="dataEntry">Message</div>
-<div class="textArea">{{textarea value=inputText cols="80" rows="10"}}</div>
+<div class="textArea">{{textarea value=container.inputText cols="80" rows="10"}}</div>
 
 
 
@@ -9,5 +9,7 @@
   <button class="btn btn-primary btn-lg" {{action "generateKeys" cipher}}>Generate New Keys</button>
   <button class="btn btn-primary btn-lg" {{action "decryptText"}}>Decrypt Message</button>
   <button class="btn btn-primary btn-lg" {{action "encryptText"}}>Encrypt Message</button>
+  {{!TODO standardize the forward and backward buttons for reusability}}
+  <button {{action "transitionToPreviousPanel"}}>BACK</button>
 </div>
 </div>
