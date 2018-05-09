@@ -4,7 +4,7 @@ export default Ember.Component.extend({
   ajax: Ember.inject.service(),
   store: Ember.inject.service(),
   cipher: null,
-  cipherOptions: CIPHERS,
+  ciphers: CIPHERS,
   init () {
     this._super();
     this.storeRecords();
@@ -18,5 +18,12 @@ export default Ember.Component.extend({
         longName: cipher.longName
       });
     });
+  },
+  actions: {
+    setCipher(cipher) {
+      alert(cipher);
+      alert(cipher.name);
+      this.set('cipher', cipher);
+    }
   }
 });

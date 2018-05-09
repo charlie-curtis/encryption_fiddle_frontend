@@ -1,6 +1,6 @@
 var CIPHER_AES = {
-    name: 'AES',
-    longName: 'Advanced Encryption Standard'
+  name: 'AES',
+  longName: 'Advanced Encryption Standard'
 };
 var CIPHER_RSA = {
   name: 'RSA',

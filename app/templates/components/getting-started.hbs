@@ -4,12 +4,11 @@
   <h1>Getting Started</h1>
   <div id="cipherOption">Choose a Cipher</div>
   <div class="modalOptions">
-    {{#each cipherOptions as |cipherOption|}}
-      <button type="button" class="btn btn-default"{{action "clearStateAndSetCipher" cipherOption.name}}>
-        {{cipherOption.longName}} <b>({{cipherOption.name}})</b>
+    {{#each ciphers as |cipher|}}
+      <button type="button" class="btn btn-default"{{action "setCipher" cipher}}>
+        {{cipher.longName}} <b>({{cipher.name}})</b>
       </button>
     {{/each}}
-      {{#link-to "generate-keys" cipher}}NEXT{{/link-to}}
-      <button>BACK</button>
+      {{#link-to "generate-keys" cipher.name}}NEXT{{/link-to}}
   </div>
 {{/modal-dialog}}
