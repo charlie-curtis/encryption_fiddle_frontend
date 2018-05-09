@@ -1,7 +1,7 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('data-container', 'Integration | Component | data container', {
+moduleForComponent('transition-component', 'Integration | Component | transition component', {
   integration: true
 });
 
@@ -10,15 +10,15 @@ test('it renders', function(assert) {
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });
 
-  this.render(hbs`{{data-container}}`);
+  this.render(hbs`{{transition-component}}`);
 
   assert.equal(this.$().text().trim(), '');
 
   // Template block usage:
   this.render(hbs`
-    {{#data-container}}
+    {{#transition-component}}
       template block text
-    {{/data-container}}
+    {{/transition-component}}
   `);
 
   assert.equal(this.$().text().trim(), 'template block text');

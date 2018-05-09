@@ -1,0 +1,7 @@
+{{! TODO DISABLE BUTTONS UNTIL THE NETWORK REQUEST HAS FINISHED}}
+{{#if canMoveForward}}
+  <button {{action "transitionToNextPanel"}}>NEXT</button>
+{{/if}}
+{{#if canMoveBackward}}
+  <button {{action "transitionToPreviousPanel"}}>BACK</button>
+{{/if}}

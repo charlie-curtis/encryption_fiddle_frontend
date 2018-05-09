@@ -5,11 +5,8 @@
 
 <div class="container-fluid">
 <div class="menuOptions">
-  <button class="btn btn-primary btn-lg" {{action "toggleModal"}}>Reset</button>
-  <button class="btn btn-primary btn-lg" {{action "generateKeys" cipher}}>Generate New Keys</button>
   <button class="btn btn-primary btn-lg" {{action "decryptText"}}>Decrypt Message</button>
   <button class="btn btn-primary btn-lg" {{action "encryptText"}}>Encrypt Message</button>
-  {{!TODO standardize the forward and backward buttons for reusability}}
-  <button {{action "transitionToPreviousPanel"}}>BACK</button>
+  {{transition-component container=container}}
 </div>
 </div>

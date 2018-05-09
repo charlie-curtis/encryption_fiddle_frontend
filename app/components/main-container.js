@@ -15,21 +15,12 @@ export default Ember.Component.extend({
   privateKey: null,
   publicKey: null,
   inputText: null,
-  init() {
-    this._super();
+  test() {
+    alert('bla');
   },
-  transitionToNextPanel() {
-    let activePanel = this.get('activePanel');
-    if (activePanel < PANEL_FIDDLE) {
-      activePanel++;
-      this.set('activePanel', activePanel);
-    }
-  },
-  transitionToPreviousPanel() {
-    let activePanel = this.get('activePanel');
-    if (activePanel > PANEL_CIPHER) {
-      activePanel--;
-      this.set('activePanel', activePanel);
+  actions: {
+    test() {
+      alert('bla');
     }
   }
 });

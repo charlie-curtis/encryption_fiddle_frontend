@@ -19,7 +19,5 @@
     </table>
   </div>
 </div>
-{{! TODO DISABLE BUTTONS UNTIL THE NETWORK REQUEST HAS FINISHED}}
-  <button {{action "transitionToNextPanel"}}>NEXT</button>
-  <button {{action "transitionToPreviousPanel"}}>BACK</button>
+  {{transition-component container=container}}
 {{/modal-dialog}}

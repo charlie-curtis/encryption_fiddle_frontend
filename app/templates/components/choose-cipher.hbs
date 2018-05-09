@@ -9,6 +9,6 @@
         {{cipher.longName}} <b>({{cipher.name}})</b>
       </button>
     {{/each}}
-      <button {{action "transitionToNextPanel" }}> NEXT </button>
+      {{transition-component container=container}}
   </div>
 {{/modal-dialog}}
