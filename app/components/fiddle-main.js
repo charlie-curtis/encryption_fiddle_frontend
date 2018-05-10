@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import { CIPHER_RSA } from "encryption-fiddle-frontend/constants/ciphers";
 export default Ember.Component.extend({
   ajax: Ember.inject.service(),
   container: null,
@@ -21,9 +22,9 @@ export default Ember.Component.extend({
           }
       }).then(response => {
           container.set('inputText', response.msg || null);
-      }).catch(response => {
+      }).catch(() => {
         this.set('errorText', "Unable to decrypt message. Please try again with different input");
-      });;
+      });
     },
     encryptText() {
       //explicitly remove error text before trying to perform action again
@@ -31,7 +32,7 @@ export default Ember.Component.extend({
       let container = this.get('container');
       let cipherName = container.get('cipher.name');
       let inputText = container.get('inputText');
-      let privateKey = cipherName == "RSA" ? container.get('publicKey') : container.get('privateKey');
+      let privateKey = cipherName === CIPHER_RSA ? container.get('publicKey') : container.get('privateKey');
       let url = "http://localhost:4200/encrypt";
       return this.get('ajax').request(url,
         { method: "POST",
@@ -42,7 +43,7 @@ export default Ember.Component.extend({
         }
       }).then(response => {
           container.set('inputText', response.msg || null);
-      }).catch(response => {
+      }).catch(() => {
         this.set('errorText', "Unable to encrypt message. Please try again with different input");
       });
     }
