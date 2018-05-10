@@ -1,22 +1,19 @@
 @import "ember-modal-dialog/ember-modal-structure";
 @import "ember-modal-dialog/ember-modal-appearance";
 @import "ember-bootstrap/bootstrap";
+@import "ember-power-select";
 
 h1 {
   text-align:center;
 }
 
-.modalOptions {
-  text-align:center;
-  //padding:1em;
-}
-
 .dataEntry {
     font-size:1.25em;
-    //font-weight: bold;
-    width:25%;
-    padding-left:7em;
-    //text-align:right;
+    font-weight:bold;
+    text-align:center;
+    width:100%;
+    padding-left:1em;
+    padding-right:1em;
 }
 
 .cipherButtons {
@@ -41,15 +38,6 @@ h1 {
   width:100%;
 }
 
-.table {
-}
-
 .ember-modal-dialog {
   background-color: #eee;
-  //text-align:center;
-  //line-height:200%;
-  //width:50%;
-  //height:50%;
 }
-
-@import "ember-power-select";
