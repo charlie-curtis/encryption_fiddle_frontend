@@ -8,6 +8,8 @@ export default Ember.Component.extend({
   container: null,
   generateKeys() {
     let container =  this.get('container');
+    container.set('privateKey', null);
+    container.set('publicKey', null);
     let cipherName = container.get('cipher.name');
     return this.get('ajax').request("/generate/keys/" + cipherName,
       { method: "GET"
