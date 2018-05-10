@@ -7,8 +7,6 @@ export default Ember.Component.extend({
   isActive: true,
   actions: {
     setCipher(cipher) {
-      console.log(cipher);
-      alert(cipher.name);
       let container = this.get('container');
       container.set('cipher', cipher);
     }

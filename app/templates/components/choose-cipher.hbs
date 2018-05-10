@@ -3,9 +3,10 @@
   translucentOverlay=true}}
     <div id="cipherOption">
         <h1>Getting Started</h1>
-        {{fa-icon camera}}
-          {{#attach-tooltip arrow=true}}
           Choose a Cipher
+          {{#attach-tooltip arrow=true}}
+          The cipher is the algorithm
+          that is used to encrypt and decrypt your messages
           {{/attach-tooltip}}
           {{#power-select
             options=ciphers
@@ -14,7 +15,8 @@
             as |cipher|}}
             <strong>{{cipher.longName}}</strong>
           {{/power-select}}
-
-      {{transition-component container=container}}
+      <div class="cipherButtons">
+        {{transition-component container=container}}
+      </div>
     </div>
 {{/modal-dialog}}
