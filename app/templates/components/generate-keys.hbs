@@ -7,12 +7,12 @@
 
       <tr>
         <td class="dataEntry">Private Key</td>
-        <td class="textArea">{{textarea value=container.privateKey cols="80" rows="6"}}</td>
+        <td class="textArea">{{textarea placeholder=placeHolderText value=container.privateKey cols="80" rows="6"}}</td>
       </tr>
       {{#if (eq container.cipher.name "RSA")}}
         <tr>
           <td class="dataEntry">Public Key</td>
-          <td class="textArea">{{textarea value=container.publicKey cols="80" rows="6"}}</td>
+          <td class="textArea">{{textarea placeholder=placeHolderText value=container.publicKey cols="80" rows="6"}}</td>
         </tr>
         {{/if}}
     </table>

@@ -15,4 +15,5 @@ export default Ember.Component.extend({
   privateKey: null,
   publicKey: null,
   inputText: null,
+  isWaitingOnNetworkRequest: false
 });

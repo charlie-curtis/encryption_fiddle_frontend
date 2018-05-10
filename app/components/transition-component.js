@@ -2,16 +2,16 @@ import Ember from 'ember';
 import { PANEL_CIPHER, PANEL_KEYS, PANEL_FIDDLE } from "encryption-fiddle-frontend/constants/panels";
 export default Ember.Component.extend({
   container: null,
-  canMoveForward: Ember.computed('container', function() {
+  canMoveForward: Ember.computed('container.{isWaitingOnNetworkRequest,activePanel}', function() {
     let container = this.get('container');
-    if (!container) {
+    if (!container || container.get('isWaitingOnNetworkRequest')) {
       return false;
     }
     return container.get('activePanel') < PANEL_FIDDLE;
   }),
-  canMoveBackward: Ember.computed('container', function() {
+  canMoveBackward: Ember.computed('container.{isWaitingOnNetworkRequest,activePanel}', function() {
     let container = this.get('container');
-    if (!container) {
+    if (!container || container.get('isWaitingOnNetworkRequest')) {
       return false;
     }
     return container.get('activePanel') > PANEL_CIPHER;
