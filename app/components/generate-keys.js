@@ -5,7 +5,11 @@ export default Ember.Component.extend({
   init() {
     this._super();
     this.generateKeys();
+    let container = this.get('container');
+    //reset the state of any errors on load. Loading this component should lead to a fresh state
+    container.set('hasError', false);
   },
+  errorText: '',
   container: null,
   generateKeys() {
     let container =  this.get('container');
@@ -19,6 +23,12 @@ export default Ember.Component.extend({
         container.set('privateKey', response.private_key || null);
         container.set('publicKey', response.public_key || null);
         container.set('isWaitingOnNetworkRequest', false);
+    }).catch(response => {
+        this.set('errorText', 'Unable to generate your keys. Try pressing "back" and try again');
+        container.set('privateKey', null);
+        container.set('publicKey', null);
+        container.set('isWaitingOnNetworkRequest', false);
+        container.set('hasError', true);
     });
   }
 });

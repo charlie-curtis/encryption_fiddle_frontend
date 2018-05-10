@@ -2,15 +2,17 @@ import Ember from 'ember';
 import { PANEL_CIPHER, PANEL_FIDDLE } from "encryption-fiddle-frontend/constants/panels";
 export default Ember.Component.extend({
   container: null,
-  canMoveForward: Ember.computed('container.{isWaitingOnNetworkRequest,activePanel}', function() {
+  canMoveForward: Ember.computed('container.{isWaitingOnNetworkRequest,activePanel,hasError}', function() {
     let container = this.get('container');
-    if (!container || container.get('isWaitingOnNetworkRequest')) {
+    //If there is an error, you cannot proceed forward, only backwards
+    if (!container || container.get('isWaitingOnNetworkRequest') || container.get('hasError')) {
       return false;
     }
     return container.get('activePanel') < PANEL_FIDDLE;
   }),
-  canMoveBackward: Ember.computed('container.{isWaitingOnNetworkRequest,activePanel}', function() {
+  canMoveBackward: Ember.computed('container.{isWaitingOnNetworkRequest,activePanel,hasError}', function() {
     let container = this.get('container');
+    //If there is an error, you cannot proceed forward, only backwards
     if (!container || container.get('isWaitingOnNetworkRequest')) {
       return false;
     }
