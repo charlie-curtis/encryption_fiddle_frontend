@@ -12,9 +12,9 @@ export default Ember.Component.extend({
       let cipherName = container.get('cipher.name');
       let inputText = container.get('inputText');
       let key = container.get('privateKey');
-      if (cipherName === CIPHER_RSA && mode === "encrypt") {
+      if (cipherName === CIPHER_RSA.name && mode === "encrypt") {
         //only use the pubKey if we're encrypting using RSA
-         key = container.get('publicKey');
+        key = container.get('publicKey');
       }
       let url = "http://localhost:4200/" + mode;
       return this.get('ajax').request(url,

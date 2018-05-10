@@ -23,7 +23,7 @@ export default Ember.Component.extend({
         container.set('privateKey', response.private_key || null);
         container.set('publicKey', response.public_key || null);
         container.set('isWaitingOnNetworkRequest', false);
-    }).catch(response => {
+    }).catch(() => {
         this.set('errorText', 'Unable to generate your keys. Try pressing "back" and try again');
         container.set('privateKey', null);
         container.set('publicKey', null);
