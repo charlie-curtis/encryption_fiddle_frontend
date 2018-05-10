@@ -10,7 +10,7 @@ export default Ember.Component.extend({
     }
     return container.get('activePanel') < PANEL_FIDDLE;
   }),
-  canMoveBackward: Ember.computed('container.{isWaitingOnNetworkRequest,activePanel,hasError}', function() {
+  canMoveBackward: Ember.computed('container.{isWaitingOnNetworkRequest,activePanel}', function() {
     let container = this.get('container');
     //If there is an error, you cannot proceed forward, only backwards
     if (!container || container.get('isWaitingOnNetworkRequest')) {
