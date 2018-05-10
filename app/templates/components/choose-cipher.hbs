@@ -2,19 +2,19 @@
   targetAttachment="center"
   translucentOverlay=true}}
     <div id="cipherOption">
-        <h1>Getting Started</h1>
-          Choose a Cipher
-          {{#attach-tooltip arrow=true}}
-          The cipher is the algorithm
-          that is used to encrypt and decrypt your messages
-          {{/attach-tooltip}}
-          {{#power-select
-            options=ciphers
-            selected=container.cipher
-            onchange=(action "setCipher")
-            as |cipher|}}
-            <strong>{{cipher.longName}}</strong>
-          {{/power-select}}
+      <h1>Getting Started</h1>
+      Choose a Cipher
+      {{#attach-tooltip arrow=true}}
+      The cipher is the algorithm
+      that is used to encrypt and decrypt your messages
+      {{/attach-tooltip}}
+        {{#power-select
+          options=ciphers
+          selected=container.cipher
+          onchange=(action "setCipher")
+          as |cipher|}}
+          <strong>{{cipher.longName}}</strong>
+        {{/power-select}}
       <div class="cipherButtons">
         {{transition-component container=container}}
       </div>

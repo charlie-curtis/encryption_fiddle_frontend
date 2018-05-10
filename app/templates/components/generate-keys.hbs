@@ -1,21 +1,21 @@
 {{#modal-dialog
   targetAttachment="center"
   translucentOverlay=true}}
-<div class="container-fluid">
-  <div class="innerDiv">
-    <table class="table table-striped">
-      <tr>
-        <td class="dataEntry">Private Key</td>
-        <td class="textArea">{{textarea placeholder=placeHolderText value=container.privateKey cols="80" rows="6"}}</td>
-      </tr>
-      {{#if (eq container.cipher.name "RSA")}}
+  <div class="container-fluid">
+    <div class="innerDiv">
+      <table class="table table-striped">
         <tr>
-          <td class="dataEntry">Public Key</td>
-          <td class="textArea">{{textarea placeholder=placeHolderText value=container.publicKey cols="80" rows="6"}}</td>
+          <td class="dataEntry">Private Key</td>
+          <td class="textArea">{{textarea placeholder=placeHolderText value=container.privateKey cols="80" rows="6"}}</td>
         </tr>
+        {{#if (eq container.cipher.name "RSA")}}
+          <tr>
+            <td class="dataEntry">Public Key</td>
+            <td class="textArea">{{textarea placeholder=placeHolderText value=container.publicKey cols="80" rows="6"}}</td>
+          </tr>
         {{/if}}
-    </table>
+      </table>
+    </div>
   </div>
-</div>
   {{transition-component container=container}}
 {{/modal-dialog}}
