@@ -6,8 +6,8 @@
   <div class="textArea">{{textarea value=container.inputText cols="80" rows="10"}}</div>
   <div class="container-fluid">
     <div class="menuOptions">
-      <button class="btn btn-primary btn-lg" {{action "encryptText"}}>Encrypt Message</button>
-      <button class="btn btn-primary btn-lg" {{action "decryptText"}}>Decrypt Message</button>
+      <button class="btn btn-primary btn-lg" {{action "transformText" "encrypt"}}>Encrypt Message</button>
+      <button class="btn btn-primary btn-lg" {{action "transformText" "decrypt"}}>Decrypt Message</button>
     </div>
   </div>
 {{transition-component container=container}}

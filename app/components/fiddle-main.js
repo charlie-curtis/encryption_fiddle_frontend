@@ -5,46 +5,30 @@ export default Ember.Component.extend({
   container: null,
   errorText: '',
   actions: {
-    decryptText() {
+    transformText(mode) {
       //explicitly remove error text before trying to perform action again
       this.set('errorText', '');
       let container = this.get('container');
       let cipherName = container.get('cipher.name');
       let inputText = container.get('inputText');
-      let privateKey = container.get('privateKey');
-      let url = "http://localhost:4200/decrypt";
-      return this.get('ajax').request(url,
-        { method: "POST",
-          data : {
-            cipher: cipherName,
-            text: inputText,
-            key: privateKey
-          }
-      }).then(response => {
-          container.set('inputText', response.msg || null);
-      }).catch(() => {
-        this.set('errorText', "Unable to decrypt message. Please try again with different input");
-      });
-    },
-    encryptText() {
-      //explicitly remove error text before trying to perform action again
-      this.set('errorText', '');
-      let container = this.get('container');
-      let cipherName = container.get('cipher.name');
-      let inputText = container.get('inputText');
-      let privateKey = cipherName === CIPHER_RSA ? container.get('publicKey') : container.get('privateKey');
-      let url = "http://localhost:4200/encrypt";
+      let key = container.get('privateKey');
+      if (cipherName === CIPHER_RSA && mode === "encrypt") {
+        //only use the pubKey if we're encrypting using RSA
+         key = container.get('publicKey');
+      }
+      let url = "http://localhost:4200/" + mode;
       return this.get('ajax').request(url,
         { method: "POST",
         data : {
           cipher: cipherName,
           text: inputText,
-          key: privateKey
+          key: key
         }
       }).then(response => {
           container.set('inputText', response.msg || null);
       }).catch(() => {
-        this.set('errorText', "Unable to encrypt message. Please try again with different input");
+        let errorMessage = "Unable to " + mode + " message. Please try again with different input";
+        this.set('errorText', errorMessage);
       });
     }
   }
