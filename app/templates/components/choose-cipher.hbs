@@ -1,14 +1,20 @@
 {{#modal-dialog
   targetAttachment="center"
   translucentOverlay=true}}
-  <h1>Getting Started</h1>
-  <div id="cipherOption">Choose a Cipher</div>
-  <div class="modalOptions">
-    {{#each ciphers as |cipher|}}
-      <button type="button" class="btn btn-default"{{action "setCipher" cipher}}>
-        {{cipher.longName}} <b>({{cipher.name}})</b>
-      </button>
-    {{/each}}
+    <div id="cipherOption">
+        <h1>Getting Started</h1>
+        {{fa-icon camera}}
+          {{#attach-tooltip arrow=true}}
+          Choose a Cipher
+          {{/attach-tooltip}}
+          {{#power-select
+            options=ciphers
+            selected=container.cipher
+            onchange=(action "setCipher")
+            as |cipher|}}
+            <strong>{{cipher.longName}}</strong>
+          {{/power-select}}
+
       {{transition-component container=container}}
-  </div>
+    </div>
 {{/modal-dialog}}

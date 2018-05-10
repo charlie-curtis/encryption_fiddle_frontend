@@ -26,7 +26,7 @@ export default Ember.Component.extend({
       }
     },
     transitionToPreviousPanel() {
-      var container = this.get('container');
+      let container = this.get('container');
       let activePanel = container.get('activePanel');
       if (this.get('canMoveBackward')) {
         activePanel--;

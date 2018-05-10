@@ -5,11 +5,11 @@ export default Ember.Component.extend({
   //TODO ERROR HANDLING
   actions: {
     decryptText() {
-      var container = this.get('container');
-      var cipherName = container.get('cipher.name');
-      var inputText = container.get('inputText');
-      var privateKey = container.get('privateKey');
-      var url = "/decrypt/" + cipherName + "/text/" + encodeURIComponent(inputText) + "/key/" + encodeURIComponent(privateKey);
+      let container = this.get('container');
+      let cipherName = container.get('cipher.name');
+      let inputText = container.get('inputText');
+      let privateKey = container.get('privateKey');
+      let url = "/decrypt/" + cipherName + "/text/" + encodeURIComponent(inputText) + "/key/" + encodeURIComponent(privateKey);
       return this.get('ajax').request(url,
         { method: "GET"
       }).then(response => {
@@ -17,11 +17,11 @@ export default Ember.Component.extend({
       });
     },
     encryptText() {
-      var container = this.get('container');
-      var cipherName = container.get('cipher.name');
-      var inputText = container.get('inputText');
-      var privateKey = cipherName == "RSA" ? container.get('publicKey') : container.get('privateKey');
-      var url = "/encrypt/" + cipherName + "/text/" +encodeURIComponent(inputText) + "/key/" + encodeURIComponent(privateKey);
+      let container = this.get('container');
+      let cipherName = container.get('cipher.name');
+      let inputText = container.get('inputText');
+      let privateKey = cipherName == "RSA" ? container.get('publicKey') : container.get('privateKey');
+      let url = "/encrypt/" + cipherName + "/text/" +encodeURIComponent(inputText) + "/key/" + encodeURIComponent(privateKey);
       return this.get('ajax').request(url,
         { method: "GET"
       }).then(response => {

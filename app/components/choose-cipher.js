@@ -4,9 +4,12 @@ export default Ember.Component.extend({
   store: Ember.inject.service(),
   ciphers: CIPHERS,
   container: null,
+  isActive: true,
   actions: {
     setCipher(cipher) {
-      var container = this.get('container');
+      console.log(cipher);
+      alert(cipher.name);
+      let container = this.get('container');
       container.set('cipher', cipher);
     }
   }
