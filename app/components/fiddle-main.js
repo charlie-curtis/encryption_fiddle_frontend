@@ -11,9 +11,14 @@ export default Ember.Component.extend({
       let cipherName = container.get('cipher.name');
       let inputText = container.get('inputText');
       let privateKey = container.get('privateKey');
-      let url = "/decrypt/" + cipherName + "/text/" + encodeURIComponent(inputText) + "/key/" + encodeURIComponent(privateKey);
+      let url = "http://localhost:4200/decrypt";
       return this.get('ajax').request(url,
-        { method: "GET"
+        { method: "POST",
+          data : {
+            cipher: cipherName,
+            text: inputText,
+            key: privateKey
+          }
       }).then(response => {
           container.set('inputText', response.msg || null);
       }).catch(response => {
@@ -27,9 +32,14 @@ export default Ember.Component.extend({
       let cipherName = container.get('cipher.name');
       let inputText = container.get('inputText');
       let privateKey = cipherName == "RSA" ? container.get('publicKey') : container.get('privateKey');
-      let url = "/encrypt/" + cipherName + "/text/" +encodeURIComponent(inputText) + "/key/" + encodeURIComponent(privateKey);
+      let url = "http://localhost:4200/encrypt";
       return this.get('ajax').request(url,
-        { method: "GET"
+        { method: "POST",
+        data : {
+          cipher: cipherName,
+          text: inputText,
+          key: privateKey
+        }
       }).then(response => {
           container.set('inputText', response.msg || null);
       }).catch(response => {
