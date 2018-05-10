@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import { PANEL_CIPHER, PANEL_KEYS, PANEL_FIDDLE } from "encryption-fiddle-frontend/constants/panels";
+import { PANEL_CIPHER, PANEL_FIDDLE } from "encryption-fiddle-frontend/constants/panels";
 export default Ember.Component.extend({
   container: null,
   canMoveForward: Ember.computed('container.{isWaitingOnNetworkRequest,activePanel}', function() {
